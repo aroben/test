@@ -74,7 +74,6 @@ module Sinatra
 
     def finish
       if status.to_i / 100 == 1
-        headers.delete "Content-Length"
         headers.delete "Content-Type"
       elsif Array === body and not [204, 304].include?(status.to_i)
         # if some other code has already set Content-Length, don't muck with it
