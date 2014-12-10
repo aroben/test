@@ -96,7 +96,6 @@ module Sinatra
   class ExtendedRack < Struct.new(:app)
     def call(env)
       result, callback = app.call(env), env['async.callback']
-      return result unless callback and async?(*result)
       after_response { callback.call result }
       setup_close(env, *result)
       throw :async
