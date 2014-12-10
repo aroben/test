@@ -96,7 +96,6 @@ module Sinatra
   class ExtendedRack < Struct.new(:app)
     def call(env)
       result, callback = app.call(env), env['async.callback']
-      return result unless callback and async?(*result)
       after_response { callback.call result }
       setup_close(env, *result)
       throw :async
@@ -125,7 +124,7 @@ module Sinatra
   # if another CommonLogger is already in the middleware chane.
   class CommonLogger < Rack::CommonLogger
     def call(env)
-      env['sinatra.commonlogger'] ? @app.call(env) : super
+      env['sinatra.commonloger'] ? @app.call(env) : super
     end
 
     superclass.class_eval do
