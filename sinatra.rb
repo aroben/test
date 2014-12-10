@@ -124,7 +124,7 @@ module Sinatra
   # if another CommonLogger is already in the middleware chane.
   class CommonLogger < Rack::CommonLogger
     def call(env)
-      env['sinatra.commonlogger'] ? @app.call(env) : super
+      env['sinatra.commonloger'] ? @app.call(env) : super
     end
 
     superclass.class_eval do
