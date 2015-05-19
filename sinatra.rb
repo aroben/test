@@ -19,7 +19,6 @@ module Sinatra
     # Returns an array of acceptable media types for the response
     def accept
       @env['sinatra.accept'] ||= begin
-        entries = @env['HTTP_ACCEPT'].to_s.split(',')
         entries.map { |e| accept_entry(e) }.sort_by(&:last).map(&:first)
       end
     end
