@@ -1,0 +1,140 @@
+= Asciidoctor Runtime Information
+Dan Allen <http://github.com/mojavelinux>
+v1.0.1, 2015-05-31
+:imagesdir: images
+:experimental:
+:toc:
+:toc-placement: preamble
+:toc-title: pass:[<b>Table of Contents</b>]
+
+This file shows information about the Asciidoctor runtime and the current file.
+It also has some examples showing off some of the available features.
+
+== Environment Info
+
+AsciiDoc implementation footnoteref:[calculated,Calculated value]::
+ifdef::asciidoctor-version[Asciidoctor]
+ifdef::asciidoc-version[AsciiDoc Python]
+
+asciidoctor-version::
+{asciidoctor-version}
+
+safe-mode-name::
+{safe-mode-name}
+
+env::
+{env}
+
+Rendering mode footnoteref:[calculated]::
+ifdef::embedded[embedded]
+ifndef::embedded[standalone]
+
+== File Info
+
+docfile::
+ifdef::docfile[{docfile}]
+ifndef::docfile[_n/a_]
+
+docdir::
+ifeval::["{docdir}" != ""]
+{docdir}
+endif::[]
+ifeval::["{docdir}" == ""]
+_empty_
+endif::[]
+
+doctitle::
+{doctitle}
+
+author::
+{author} ({email})
+
+revision::
+{revnumber}
+
+backend::
+{backend}
+
+basebackend::
+{basebackend}
+
+outfilesuffix::
+{outfilesuffix}
+
+doctype::
+{doctype}
+
+docdate @ doctime::
+{docdate} @ {doctime}
+
+localdate @ localtime::
+{localdate} @ {localtime}
+
+imagesdir::
+{imagesdir}
+
+== Examples
+
+Also see <<examples-2>>.
+
+UTF-8 example::
+µService
+
+source highlighter::
+{source-highlighter}
+
+source code example::
++
+.Ruby code
+[source,ruby]
+puts 'Hello, syntax highlighting!'
+
+image example::
++
+image::tiger.png[Tiger,200,200]
+
+passthrough example::
++++<i title="Yet Another Markup Language">YAML</i>+++
+
+ordered list numbering offset:: {empty}
++
+[start=10]
+. ten
+. eleven
+. twelve
+
+table header and footer rows:: {empty}
++
+[%header%footer]
+|===
+|Month |Savings
+
+|Jan
+|$100
+
+|Feb
+|$50
+
+2+|Total saved: $150
+|===
+
+include file:: {empty}
++
+--
+include::include.adoc[]
+--
+
+UI macro examples::
+
+  Button (btn):::
+  Click the btn:[OK] button to continue.
+
+  Keybinding (kbd):::
+  Use the keybinding kbd:[Ctrl+Shift+T] to create a new class.
+
+  Menu (menu):::
+  Select menu:View[Zoom > Reset] to reset the zoom level.
+  
+== Examples
+
+Example of a duplicate section title.
