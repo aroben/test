@@ -33,10 +33,6 @@ module Sinatra
       end
     end
 
-    alias accept? preferred_type
-    alias secure? ssl?
-
-    def forwarded?
       @env.include? "HTTP_X_FORWARDED_HOST"
     end
 
