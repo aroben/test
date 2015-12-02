@@ -33,6 +33,7 @@ module Sinatra
       end
     end
 
+    def forwarded?
       @env.include? "HTTP_X_FORWARDED_HOST"
     end
 
